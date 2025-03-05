@@ -8,7 +8,10 @@ from ytmusicapi import YTMusic
 from yt_dlp import YoutubeDL
 import re
 
-ytmusic = YTMusic()
+ytmusic = YTMusic(proxies={
+    "http" : "socks5://127.0.0.1:2080",
+    "https" :"socks5://127.0.0.1:2080",
+})
 
 videoId_regex = re.compile(r"((?<=(v|V)/)|(?<=be/)|(?<=(\?|\&)v=)|(?<=embed/))([\w-]+)")
 playlistId_regex = re.compile(r"(?<=list=)([\w-]+)")
